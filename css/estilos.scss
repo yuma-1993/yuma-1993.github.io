@@ -1,12 +1,139 @@
-/* reset css */
-html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, form, fieldset, blockquote {
-    padding: 0; /*relleno a 0*/
-    margin: 0;  /*margen a 0 */
-    font-size: 100%;
-    font-weight: normal;
-   }
-   /* fin reset css*/
+//Propiedades fijas
+$color-main: #1d002b;
+$color-secondary: #2f103f;
+$text-secondary: #535353;
+
+
 
 body {
-    background-color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(253, 10, 10);
+
+}
+body a {
+    color: white;
+    text-decoration: none;
+}
+body a:hover {
+    color: $text-secondary;
+}
+
+p a {
+    color: $color-main;
+    font-weight: bold;
+}
+p a:hover {
+    color: $text-secondary;
+    font-weight: bold;
+}
+
+p a:visited {
+    color: $color-main;
+    font-weight: bold;
+}
+
+
+//NAVEGADOR
+#navegador {
+    background-color: $color-main;
+    color: white;
+    width: 100%;
+    position: fixed;
+    margin-top: -3rem;
+    #logo {
+        float: left;
+        padding-left: 5rem;
+        height: 3.5rem;
+        img {
+            height: 3.5rem;
+        }
+    }
+    #menu {
+        position: absolute;
+        left: 25rem;
+        top: 15px;
+        nav{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            ul {
+                li{
+                    display: inline;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+    #red-soc {
+        position: absolute;
+        right: 60px;
+        top: 15px;
+        #btn-primary {
+            color: white;
+            background-color: #1d002b;
+            border: 0;
+            padding: 0 1rem;
+        }
+        #btn-primary:hover {
+            color: $text-secondary;
+        }
+    }
+}
+
+//ENCABEZADO
+#encabezado {
+    margin: auto;
+    margin-top: 3rem;
+    width: 50%;
+    padding: 1rem;
+}
+
+//SECCION PERFIL
+#sec-perfil {
+    margin: auto;
+    margin-bottom: 4rem;
+    .descripcion {
+        margin: auto;
+        width: 50%;
+        margin-top: 3rem;
+    }
+    .perfil {
+        margin: auto;
+        width: 75%;
+        display: flex;
+        .disciplinas {
+            width: 100%;
+            p{
+                font-size: 1em;
+            }
+        }
+        .sec-lateral {
+            width: 43%;
+            margin-left: 10rem;
+            #foto-principal {
+                width: 22rem;
+            };
+        }
+    }
+}
+
+//BOTONES
+.btn-principal {
+    background-color: $color-main;
+    color: white;
+    border: 0.5px solid black;
+}
+.btn-principal:hover {
+    box-shadow: 1px 2px 5px $text-secondary;
+    background-color: $color-secondary;
+}
+.btn-principal:active {
+    background-color: $color-secondary;
+}
+
+//RESPONSIVE
+
+
+@media screen and (max-width: 600px) {
+    body {
+        background-color: #1d002b;
+    }
 }
