@@ -7,7 +7,7 @@ $text-secondary: #535353;
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(253, 10, 10);
+    background-color: white !important;
 
 }
 body a {
@@ -133,7 +133,40 @@ p a:visited {
 
 
 @media screen and (max-width: 600px) {
-    body {
-        background-color: #1d002b;
+    #encabezado {
+        margin: auto;
+        margin-top: 3rem;
+        width: 100%;
+        padding: 1rem;
+        text-align: justify;
+        .btn-principal {
+            margin-left: 35%;
+            padding: 10px;
+            border-radius: 1rem;
+        }
     }
+    .descripcion {
+        width: 90% !important;
+        text-align: justify;
+        h2 {
+            text-align: center !important;
+        }
+    }
+    .perfil {
+        text-align: justify;
+        display: block !important;
+        h3 {
+            text-align: center;
+        }
+        .sec-lateral {
+            margin-left: 0 !important;
+            #foto-principal {
+                width: 17rem !important;
+            }  
+        }
+    }
+    .icono {
+        margin-left: 8rem;
+    }
+    
 }
