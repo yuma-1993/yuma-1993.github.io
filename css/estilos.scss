@@ -3,19 +3,17 @@ $color-main: #1d002b;
 $color-secondary: #2f103f;
 $text-secondary: #535353;
 
-
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white !important;
-
-}
-body a {
-    color: white;
-    text-decoration: none;
-}
-body a:hover {
-    color: $text-secondary;
+    background-color: rgb(255, 255, 255) !important;
 }
 
 p a {
@@ -32,41 +30,77 @@ p a:visited {
     font-weight: bold;
 }
 
+//BARRA NAVEGADORA
+img {
+    max-width: 100%;
+}
 
-//NAVEGADOR
-#navegador {
+
+.main-nav {
     background-color: $color-main;
     color: white;
-    width: 100%;
-    position: fixed;
-    margin-top: -3rem;
-    
-    #menu {
-        nav{
-            display: flex;
-            justify-content: space-around;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 3rem;
+}
+.toggle-menu {
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    z-index: 1;
+}
 
-            .nav-enlaces{
-                display: inline-block;
-                padding: 20px 30px;
-            }
-        }
-    }
-    #btn-primary {
-        color: white;
-        background-color: #1d002b;
-        border: 0;
-    }
-    #btn-primary:hover {
-        color: $text-secondary;
+.main-menu {
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    display: flex;
+    flex-direction: column;
+    background-color: $color-main;
+    text-align: center;
+    transition: transform 0.3s;
+    /*hará que el menu desaparezca*/
+    transform: translateY(-100%);
+    
+}
+
+
+.main-menu--show {
+    /*Permite que el menu se quede en la posición
+      en la que esta ahora mismo*/
+    transform: translateY(0);
+}
+
+@media screen and (min-width: 996px){
+    .main-menu {
+        flex-direction: row;
+        transform: translateY(0);
     }
 }
 
+@media screen and (min-width: 996px){
+    .toggle-menu {
+        display: none;
+    }
+}
+
+.main-menu__item {
+    padding: 1em;
+}
+
+.main-menu__link {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+
+
 //ENCABEZADO
 #encabezado {
-    margin: auto;
-    margin-top: 3rem;
+    margin: 0.5rem auto;
     width: 50%;
     padding: 1rem;
 }
@@ -74,11 +108,10 @@ p a:visited {
 //SECCION PERFIL
 #sec-perfil {
     margin: auto;
-    margin-bottom: 4rem;
     .descripcion {
         margin: auto;
         width: 50%;
-        margin-top: 3rem;
+        margin-top: 1rem;
     }
     .perfil {
         margin: auto;
@@ -86,18 +119,32 @@ p a:visited {
         display: flex;
         .disciplinas {
             width: 100%;
-            p{
-                font-size: 1em;
-            }
+            .sec-disciplinas{
+                
+                .icono {
+                    display: flex;
+                    i {
+                        padding: 0.3rem 0 0 0;
+                    }
+                }
+                p{
+                    font-size: 1em;
+                }
+            }  
         }
         .sec-lateral {
-            width: 43%;
-            margin-left: 10rem;
+            width: 75%;
+            margin-left: 20%;
             #foto-principal {
-                width: 22rem;
+                width: 75%;
+                height: 90%
             };
         }
     }
+}
+
+.img-logro {
+    width: 4rem;
 }
 
 //BOTONES
@@ -113,43 +160,23 @@ p a:visited {
 .btn-principal:active {
     background-color: $color-secondary;
 }
-.nav-boton {
-    background-color: yellow;
-    color: white;
-    padding: 10px 0;
-    border: 2px solid blue;
-    display: none;
-}
+
 
 //RESPONSIVE
-@media (max-width: 600px) {
-    nav {
-        background-color: black;
-        flex-direction: column;
-    }
-    .nav-enlaces {
-        margin: 10px 0;
-    }
-    .nav-boton {
-        display: inline-block;
-    }
-    .desaparece {
-        display: none !important;
-    }
-
-}
-
-@media screen and (max-width: 360px) {
+@media (max-width: 788px) {
     #encabezado {
         margin: auto;
-        margin-top: 3rem;
         width: 100%;
-        padding: 1rem;
+        padding: 2rem;
         text-align: justify;
         .btn-principal {
-            margin-left: 35%;
-            padding: 10px;
+            margin-top: 1rem;
+            width: 50%;
+            margin-left: 25%;
+            padding: 30px;
             border-radius: 1rem;
+            font-size: 25px;
+            font-weight: bold;
         }
     }
     .descripcion {
@@ -165,15 +192,57 @@ p a:visited {
         h3 {
             text-align: center;
         }
+        .sec-disciplinas{
+            width: 100% !important;
+            .icono {
+                display: block !important;
+                h3 {
+                    margin-left: -100% !important;
+                }
+            }
+        }
         .sec-lateral {
-            margin-left: 0 !important;
+            margin-left: 25%;
             #foto-principal {
+                margin-top: 1.5rem !important;
                 width: 17rem !important;
+                border-radius: 1rem;
             }  
         }
     }
     .icono {
-        margin-left: 8rem;
+        margin-left: 50%;
     }
     
+}
+
+@media (max-width: 550px) {
+    .sec-lateral {
+        margin-left: 20% !important;
+        #foto-principal {
+            margin-top: 1.5rem !important;
+            width: 17rem !important;
+            border-radius: 1rem;
+        }  
+    }
+
+}
+
+@media (max-width: 400px) {
+    .sec-lateral {
+        margin-left: 0 !important;
+    }
+
+    #encabezado {
+        .btn-principal {
+            margin-top: 1rem;
+            width: 50%;
+            margin-left: 25%;
+            padding: 25px;
+            font-size: 20px;
+        }
+    }
+    
+
+
 }

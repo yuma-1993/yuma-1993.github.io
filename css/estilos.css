@@ -1,15 +1,15 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: white !important;
-}
-
-body a {
-  color: white;
-  text-decoration: none;
-}
-
-body a:hover {
-  color: #535353;
+  background-color: rgb(255, 255, 255) !important;
 }
 
 p a {
@@ -27,46 +27,79 @@ p a:visited {
   font-weight: bold;
 }
 
-#navegador {
+img {
+  max-width: 100%;
+}
+
+.main-nav {
   background-color: #1d002b;
   color: white;
-  width: 100%;
-  position: fixed;
-  margin-top: -3rem;
+  height: 3rem;
 }
-#navegador #menu nav {
+
+.toggle-menu {
+  position: absolute;
+  top: 0.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+  width: 40px;
+  z-index: 1;
+}
+
+.main-menu {
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
   display: flex;
-  justify-content: space-around;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-#navegador #menu nav .nav-enlaces {
-  display: inline-block;
-  padding: 20px 30px;
-}
-#navegador #btn-primary {
-  color: white;
+  flex-direction: column;
   background-color: #1d002b;
-  border: 0;
+  text-align: center;
+  transition: transform 0.3s;
+  /*hará que el menu desaparezca*/
+  transform: translateY(-100%);
 }
-#navegador #btn-primary:hover {
-  color: #535353;
+
+.main-menu--show {
+  /*Permite que el menu se quede en la posición
+    en la que esta ahora mismo*/
+  transform: translateY(0);
+}
+
+@media screen and (min-width: 996px) {
+  .main-menu {
+    flex-direction: row;
+    transform: translateY(0);
+  }
+}
+@media screen and (min-width: 996px) {
+  .toggle-menu {
+    display: none;
+  }
+}
+.main-menu__item {
+  padding: 1em;
+}
+
+.main-menu__link {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 #encabezado {
-  margin: auto;
-  margin-top: 3rem;
+  margin: 0.5rem auto;
   width: 50%;
   padding: 1rem;
 }
 
 #sec-perfil {
   margin: auto;
-  margin-bottom: 4rem;
 }
 #sec-perfil .descripcion {
   margin: auto;
   width: 50%;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 #sec-perfil .perfil {
   margin: auto;
@@ -76,15 +109,26 @@ p a:visited {
 #sec-perfil .perfil .disciplinas {
   width: 100%;
 }
-#sec-perfil .perfil .disciplinas p {
+#sec-perfil .perfil .disciplinas .sec-disciplinas .icono {
+  display: flex;
+}
+#sec-perfil .perfil .disciplinas .sec-disciplinas .icono i {
+  padding: 0.3rem 0 0 0;
+}
+#sec-perfil .perfil .disciplinas .sec-disciplinas p {
   font-size: 1em;
 }
 #sec-perfil .perfil .sec-lateral {
-  width: 43%;
-  margin-left: 10rem;
+  width: 75%;
+  margin-left: 20%;
 }
 #sec-perfil .perfil .sec-lateral #foto-principal {
-  width: 22rem;
+  width: 75%;
+  height: 90%;
+}
+
+.img-logro {
+  width: 4rem;
 }
 
 .btn-principal {
@@ -102,41 +146,21 @@ p a:visited {
   background-color: #2f103f;
 }
 
-.nav-boton {
-  background-color: yellow;
-  color: white;
-  padding: 10px 0;
-  border: 2px solid blue;
-  display: none;
-}
-
-@media (max-width: 600px) {
-  nav {
-    background-color: black;
-    flex-direction: column;
-  }
-  .nav-enlaces {
-    margin: 10px 0;
-  }
-  .nav-boton {
-    display: inline-block;
-  }
-  .desaparece {
-    display: none !important;
-  }
-}
-@media screen and (max-width: 360px) {
+@media (max-width: 788px) {
   #encabezado {
     margin: auto;
-    margin-top: 3rem;
     width: 100%;
-    padding: 1rem;
+    padding: 2rem;
     text-align: justify;
   }
   #encabezado .btn-principal {
-    margin-left: 35%;
-    padding: 10px;
+    margin-top: 1rem;
+    width: 50%;
+    margin-left: 25%;
+    padding: 30px;
     border-radius: 1rem;
+    font-size: 25px;
+    font-weight: bold;
   }
   .descripcion {
     width: 90% !important;
@@ -152,13 +176,46 @@ p a:visited {
   .perfil h3 {
     text-align: center;
   }
+  .perfil .sec-disciplinas {
+    width: 100% !important;
+  }
+  .perfil .sec-disciplinas .icono {
+    display: block !important;
+  }
+  .perfil .sec-disciplinas .icono h3 {
+    margin-left: -100% !important;
+  }
   .perfil .sec-lateral {
-    margin-left: 0 !important;
+    margin-left: 25%;
   }
   .perfil .sec-lateral #foto-principal {
+    margin-top: 1.5rem !important;
     width: 17rem !important;
+    border-radius: 1rem;
   }
   .icono {
-    margin-left: 8rem;
+    margin-left: 50%;
+  }
+}
+@media (max-width: 550px) {
+  .sec-lateral {
+    margin-left: 20% !important;
+  }
+  .sec-lateral #foto-principal {
+    margin-top: 1.5rem !important;
+    width: 17rem !important;
+    border-radius: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .sec-lateral {
+    margin-left: 0 !important;
+  }
+  #encabezado .btn-principal {
+    margin-top: 1rem;
+    width: 50%;
+    margin-left: 25%;
+    padding: 25px;
+    font-size: 20px;
   }
 }/*# sourceMappingURL=estilos.css.map */
