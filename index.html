@@ -12,22 +12,20 @@
 </head>
 <body>
     <div id="navegador">
-        <div id="logo">
-            <a href="index.html"><img src="img/logo.png" alt="Logo web"></a>
-        </div>
+
         <div id="menu">
             <nav>
-                <ul>
-                    <li>Currículum</li>
-                    <li><a href="articulos.htm">Artículos</a></li>
-                    <li>Proyectos</li>
-                    <li>Contacto</li>
-                </ul>
+                <a href="index.html"><img src="img/logo.png" alt="Logo web"></a>
+                <button class="nav-boton" onclick="accion()">Menú</button>
+                <a href="#" class="nav-enlaces desaparece">Currículum</a>
+                <a href="articulos.htm" class="nav-enlaces desaparece">Artículos</a>
+                <a href="#" class="nav-enlaces desaparece">Proyectos</a>
+                <a href="#" class="nav-enlaces desaparece">Contacto</a>
+
+                <button class="nav-enlaces" id="btn-primary"><i class="bi-linkedin"></i>Linkedin</button>
+                <button class="nav-enlaces" id="btn-primary"><i class="bi-github"></i>Git Hub</button>
+
             </nav>
-        </div>
-        <div id="red-soc">
-            <button id="btn-primary"><i class="bi-linkedin"></i>Linkedin</button>
-            <button id="btn-primary"><i class="bi-github"></i>Git Hub</button>
         </div>
     </div>
     <div id="encabezado">
@@ -79,5 +77,15 @@
             <p>Junto a Maria del Carmen Fresnedoso, Jacinto Gutiérrez y Samuel Núñez conseguimos el primer premio en el Hackaton propuesto para la conferencia de la "European Sociological Association" celebrado desde el día 30 de agosto hasta el 3 de septiembre del año 2021. Posteriormente, la prestigiosa "Internacional Sociological Asociation" nos propuso redactar un artículo para su revista E-Symposia. El cual puedes leer haciendo click <a href="https://novaciencia.es/el-team-granada-de-la-ugr-ganador-del-primer-esa-hackathon/">AQUÍ</a>.</p>
         </div>
     </div>
+    <script>
+        function accion() {
+            console.log('Está funcionando');
+            let ancla = document.getElementsByClassName('nav-enlace');
+            for(let i = 0; i < ancla.length; i++){
+                ancla[i].classList.toggle('desaparece');
+            }
+        }
+
+    </script>
 </body>
 </html>

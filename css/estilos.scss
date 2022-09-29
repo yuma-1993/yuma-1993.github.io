@@ -40,41 +40,26 @@ p a:visited {
     width: 100%;
     position: fixed;
     margin-top: -3rem;
-    #logo {
-        float: left;
-        padding-left: 5rem;
-        height: 3.5rem;
-        img {
-            height: 3.5rem;
-        }
-    }
+    
     #menu {
-        position: absolute;
-        left: 25rem;
-        top: 15px;
         nav{
+            display: flex;
+            justify-content: space-around;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            ul {
-                li{
-                    display: inline;
-                    padding: 10px;
-                }
+
+            .nav-enlaces{
+                display: inline-block;
+                padding: 20px 30px;
             }
         }
     }
-    #red-soc {
-        position: absolute;
-        right: 60px;
-        top: 15px;
-        #btn-primary {
-            color: white;
-            background-color: #1d002b;
-            border: 0;
-            padding: 0 1rem;
-        }
-        #btn-primary:hover {
-            color: $text-secondary;
-        }
+    #btn-primary {
+        color: white;
+        background-color: #1d002b;
+        border: 0;
+    }
+    #btn-primary:hover {
+        color: $text-secondary;
     }
 }
 
@@ -128,9 +113,31 @@ p a:visited {
 .btn-principal:active {
     background-color: $color-secondary;
 }
+.nav-boton {
+    background-color: yellow;
+    color: white;
+    padding: 10px 0;
+    border: 2px solid blue;
+    display: none;
+}
 
 //RESPONSIVE
+@media (max-width: 600px) {
+    nav {
+        background-color: black;
+        flex-direction: column;
+    }
+    .nav-enlaces {
+        margin: 10px 0;
+    }
+    .nav-boton {
+        display: inline-block;
+    }
+    .desaparece {
+        display: none !important;
+    }
 
+}
 
 @media screen and (max-width: 360px) {
     #encabezado {

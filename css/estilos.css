@@ -34,38 +34,21 @@ p a:visited {
   position: fixed;
   margin-top: -3rem;
 }
-#navegador #logo {
-  float: left;
-  padding-left: 5rem;
-  height: 3.5rem;
-}
-#navegador #logo img {
-  height: 3.5rem;
-}
-#navegador #menu {
-  position: absolute;
-  left: 25rem;
-  top: 15px;
-}
 #navegador #menu nav {
+  display: flex;
+  justify-content: space-around;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#navegador #menu nav ul li {
-  display: inline;
-  padding: 10px;
+#navegador #menu nav .nav-enlaces {
+  display: inline-block;
+  padding: 20px 30px;
 }
-#navegador #red-soc {
-  position: absolute;
-  right: 60px;
-  top: 15px;
-}
-#navegador #red-soc #btn-primary {
+#navegador #btn-primary {
   color: white;
   background-color: #1d002b;
   border: 0;
-  padding: 0 1rem;
 }
-#navegador #red-soc #btn-primary:hover {
+#navegador #btn-primary:hover {
   color: #535353;
 }
 
@@ -119,6 +102,29 @@ p a:visited {
   background-color: #2f103f;
 }
 
+.nav-boton {
+  background-color: yellow;
+  color: white;
+  padding: 10px 0;
+  border: 2px solid blue;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  nav {
+    background-color: black;
+    flex-direction: column;
+  }
+  .nav-enlaces {
+    margin: 10px 0;
+  }
+  .nav-boton {
+    display: inline-block;
+  }
+  .desaparece {
+    display: none !important;
+  }
+}
 @media screen and (max-width: 360px) {
   #encabezado {
     margin: auto;
